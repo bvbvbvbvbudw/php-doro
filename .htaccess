@@ -1,0 +1,10 @@
+RewriteEngine On
+
+AddDefaultCharset UTF-8
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+RewriteRule ^(.*)$ public/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.php$ public/$1.php [L]
